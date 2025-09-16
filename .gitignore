@@ -10,4 +10,4 @@ allure-results
 allure-report
 
 # data for autologin
-browser-state/
+browser-state.json

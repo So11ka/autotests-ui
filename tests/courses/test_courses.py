@@ -5,7 +5,7 @@ from pytest import mark
 @mark.ui
 @mark.courses
 class TestCourses:
-    def test_empty_courses_list(self, chromium_page_with_state: Page):
+    def test_empty_courses_list(self, chromium_page_with_state: Page, param):
         chromium_page_with_state.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses')
 
         courses_title = chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')
@@ -24,5 +24,3 @@ class TestCourses:
         expect(results_from_the_load_test_pipeline_will_be_displayed_here).to_be_visible()
         expect(results_from_the_load_test_pipeline_will_be_displayed_here).to_have_text(
             'Results from the load test pipeline will be displayed here')
-
-        chromium_page_with_state.wait_for_timeout(5000)
