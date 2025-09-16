@@ -1,6 +1,9 @@
+from pytest import mark
 from playwright.sync_api import sync_playwright
 
-
+@mark.regression
+@mark.ui
+@mark.registration
 class TestRegistration:
     def test_successful_registration(self):
         with sync_playwright() as playwright:
