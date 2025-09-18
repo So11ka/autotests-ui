@@ -16,16 +16,16 @@ def registration_page(chromium_page: Page) -> RegistrationPage:
     return RegistrationPage(chromium_page)
 
 @fixture
-def dashboard_page(chromium_page: Page) -> DashboardPage:
-    return DashboardPage(chromium_page)
+def dashboard_page(chromium_page_with_state: Page) -> DashboardPage:
+    return DashboardPage(chromium_page_with_state)
 
 @fixture
-def courses_list_page(chromium_page: Page) -> CoursesListPage:
-    return CoursesListPage(chromium_page)
+def courses_list_page(chromium_page_with_state: Page) -> CoursesListPage:
+    return CoursesListPage(chromium_page_with_state)
 
 @fixture
-def create_course_page(chromium_page: Page) -> CreateCoursePage:
-    return CreateCoursePage(chromium_page)
+def create_course_page(chromium_page_with_state: Page) -> CreateCoursePage:
+    return CreateCoursePage(chromium_page_with_state)
 
 
 """
