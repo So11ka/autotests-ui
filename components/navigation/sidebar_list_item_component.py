@@ -3,7 +3,7 @@ from playwright.sync_api import Page, expect
 from components.base_components import BaseComponent
 
 
-class Sidebar_List_Item_Component(BaseComponent):
+class SidebarListItemComponent(BaseComponent):
     def __init__(self, page: Page, identifier: str):
         super().__init__(page)
         self.icon = page.get_by_test_id(f'{identifier}-drawer-list-item-icon')

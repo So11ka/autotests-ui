@@ -9,25 +9,12 @@ from pages.create_course_page import CreateCoursePage
 @mark.ui
 @mark.courses
 class TestCourses:
-    def test_empty_courses_list(self, chromium_page_with_state: Page):
-        chromium_page_with_state.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses')
-
-        courses_title = chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')
-        expect(courses_title).to_be_visible()
-        expect(courses_title).to_have_text('Courses')
-
-        courses_icon_folder = chromium_page_with_state.get_by_test_id('courses-list-empty-view-icon')
-        expect(courses_icon_folder).to_be_visible()
-
-        there_is_no_results = chromium_page_with_state.get_by_test_id('courses-list-empty-view-title-text')
-        expect(there_is_no_results).to_be_visible()
-        expect(there_is_no_results).to_have_text('There is no results')
-
-        results_from_the_load_test_pipeline_will_be_displayed_here = chromium_page_with_state.get_by_test_id(
-            'courses-list-empty-view-description-text')
-        expect(results_from_the_load_test_pipeline_will_be_displayed_here).to_be_visible()
-        expect(results_from_the_load_test_pipeline_will_be_displayed_here).to_have_text(
-            'Results from the load test pipeline will be displayed here')
+    def test_empty_courses_list(self, courses_list_page: CoursesListPage):
+        courses_list_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
+        courses_list_page.navbar.check_visible('username')
+        courses_list_page.sidebar.check_visible()
+        courses_list_page.check_visible_courses_title()
+        courses_list_page.check_visible_empty_view()
 
     def test_create_course(self, create_course_page: CreateCoursePage, courses_list_page: CoursesListPage):
         create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
@@ -69,7 +56,6 @@ class TestCourses:
             max_score = "100",
             min_score = "10"
         )
-
 
 
 
