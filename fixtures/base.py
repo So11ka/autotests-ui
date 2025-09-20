@@ -3,7 +3,7 @@ from playwright.sync_api import Page, Playwright
 
 @fixture
 def chromium_page(playwright: Playwright) -> Page:
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False)
     yield browser.new_page()
     browser.close()
 
@@ -34,7 +34,7 @@ def initialize_browser_state(playwright: Playwright) -> None:
 
 @fixture
 def chromium_page_with_state(playwright: Playwright, initialize_browser_state) -> Page:
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state='./browser-state.json')
     yield context.new_page()
     browser.close()

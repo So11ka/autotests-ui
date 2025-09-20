@@ -1,6 +1,5 @@
 from playwright.sync_api import Page, expect
-
-from components.base_components import BaseComponent
+from components.base_component import BaseComponent
 
 
 class NavbarComponent(BaseComponent):
