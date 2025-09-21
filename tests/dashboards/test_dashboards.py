@@ -1,4 +1,4 @@
-from pages.dashboard_page import DashboardPage
+from pages.dashboard.dashboard_page import DashboardPage
 from pytest import mark
 
 @mark.dashboard

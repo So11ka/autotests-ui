@@ -1,4 +1,4 @@
 pytest_plugins = [
-    'fixtures.base',
+    'fixtures.browsers',
     'fixtures.pages',
 ]
