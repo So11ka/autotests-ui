@@ -17,18 +17,18 @@ class CourseViewComponent(BaseComponent):
         self.estimated_time = Text(page,'course-estimated-time-info-row-view-text', 'Estimated Time')
 
     def check_visible(self, index: int, title: str, max_score: str, min_score: str, estimated_time: str):
-        self.title.check_visible(index)
-        self.title.check_have_text(title, index)
+        self.title.check_visible(index=index)
+        self.title.check_have_text(title, index=index)
 
-        self.image.check_visible(index)
+        self.image.check_visible(index=index)
         self.menu.button.check_visible()
 
-        self.max_score.check_visible(index)
-        self.max_score.check_have_text(f'Max score: {max_score}', index)
+        self.max_score.check_visible(index=index)
+        self.max_score.check_have_text(f'Max score: {max_score}', index=index)
 
-        self.min_score.check_visible(index)
-        self.min_score.check_have_text(f'Min score: {min_score}', index)
+        self.min_score.check_visible(index=index)
+        self.min_score.check_have_text(f'Min score: {min_score}', index=index)
 
         self.estimated_time.check_visible()
-        self.estimated_time.check_have_text(f'Estimated time: {estimated_time}', index)
+        self.estimated_time.check_have_text(f'Estimated time: {estimated_time}', index=index)
         

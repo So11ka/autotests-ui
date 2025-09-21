@@ -21,3 +21,4 @@ class CreateCourseExercisesToolbarViewComponent(BaseComponent):
         self.create_exercise_button.click()
 
 
+
