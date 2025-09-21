@@ -12,9 +12,13 @@ class CreateCourseToolbarViewComponent(BaseComponent):
         self.title = Text(page, 'create-course-toolbar-title-text', 'Title')
         self.create_course_button = Button(page, 'create-course-toolbar-create-course-button', 'Create Course')
 
-    def check_visible(self):
-        self.title.check_visible()
-        self.title.check_have_text('Create course')
+    def check_visible(self, is_edit: bool = False):
+        if is_edit:
+            self.title.check_visible()
+            self.title.check_have_text('Update course')
+        else:
+            self.title.check_visible()
+            self.title.check_have_text('Create course')
 
         self.create_course_button.check_visible()
 

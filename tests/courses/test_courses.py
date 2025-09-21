@@ -53,5 +53,52 @@ class TestCourses:
             min_score = "10"
         )
 
+    def test_edit_course(self, create_course_page_with_state: CreateCoursePage, courses_list_page_with_state: CoursesListPage):
+        create_course_page_with_state.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
+        create_course_page_with_state.image_upload_widget.upload_preview_image('./testdata/files/image.png')
+        create_course_page_with_state.image_upload_widget.check_visible(is_image_uploaded=True)
+        create_course_page_with_state.create_course_form.fill(
+            title = "Playwright",
+            estimated_time = "2 weeks",
+            description = "Playwright",
+            max_score = "100",
+            min_score = "10"
+        )
+        create_course_page_with_state.create_course_toolbar_view.click_create_course_button()
+
+        courses_list_page_with_state.toolbar_view.check_visible()
+        courses_list_page_with_state.course_view.check_visible(
+            index=0,
+            title="Playwright",
+            estimated_time="2 weeks",
+            max_score="100",
+            min_score="10"
+        )
+
+        courses_list_page_with_state.course_menu.click_edit(index=0)
+        create_course_page_with_state.create_course_toolbar_view.check_visible(is_edit=True)
+        create_course_page_with_state.create_course_form.fill(
+            title = "httpx",
+            estimated_time = "3 weeks",
+            description = "Library httpx",
+            max_score = "10",
+            min_score = "1"
+        )
+        create_course_page_with_state.create_course_toolbar_view.click_create_course_button()
+
+        courses_list_page_with_state.toolbar_view.check_visible()
+        courses_list_page_with_state.course_view.check_visible(
+            index=0,
+            title = "httpx",
+            estimated_time = "3 weeks",
+            max_score = "10",
+            min_score = "1"
+        )
+
+
+
+
+
+
 
 
