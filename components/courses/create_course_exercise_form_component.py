@@ -5,7 +5,7 @@ from elements.text import Text
 
 
 class CreateCourseExerciseFormComponent(BaseComponent):
-    def __init__(self, page: Page, locator: str, name: str):
+    def __init__(self, page: Page):
         super().__init__(page)
         self.delete_exercise_button = Input(page, "create-course-exercise-{index}-box-toolbar-delete-exercise-button", 'Delete exercise')
 

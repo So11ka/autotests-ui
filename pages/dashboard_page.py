@@ -20,16 +20,12 @@ class DashboardPage(BasePage):
 
     def check_visible_students_chart(self):
         self.students_chart_view.check_visible("Students")
-        expect(self.students_chart_view.chart).to_be_visible()
 
     def check_visible_activities_chart(self):
         self.activities_chart_view.check_visible("Activities")
-        expect(self.students_chart_view.chart).to_be_visible()
 
     def check_visible_scores_chart(self):
         self.scores_chart_view.check_visible("Scores")
-        expect(self.students_chart_view.chart).to_be_visible()
 
     def check_visible_courses_chart(self):
         self.courses_chart_view.check_visible("Courses")
-        expect(self.students_chart_view.chart).to_be_visible()
